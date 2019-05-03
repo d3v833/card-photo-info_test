@@ -3,6 +3,8 @@ import CardList from './cardList';
 import SearchBox from './searchBox';
 import { people } from './people';
 import './index.css';
+import './App.css';
+
 
 const changeBg = (color) => {
   document.documentElement.style.setProperty('--background', color)
@@ -38,7 +40,7 @@ class App extends Component {
     })
     return (
       <div className="tc">
-        <h1>Cat People</h1>
+        <h1 className="f1">C A T  P E O P L E</h1>
         <SearchBox searchChange={this.onSearchChange}/>
         <CardList people={ filteredCatpeople }/>
       </div>
