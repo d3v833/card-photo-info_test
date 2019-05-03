@@ -40,7 +40,7 @@ class App extends Component {
     })
     return (
       <div className="tc">
-        <h1 className="f1">C A T  P E O P L E</h1>
+        <h1 className="f3 f-headline-l">C A T  P E O P L E</h1>
         <SearchBox searchChange={this.onSearchChange}/>
         <CardList people={ filteredCatpeople }/>
       </div>
