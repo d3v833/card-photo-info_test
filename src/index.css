@@ -1,3 +1,8 @@
+:root {
+  --primaryColor: #f6fffe;
+  --background: wheat;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -6,6 +11,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background);
 }
 
 code {
