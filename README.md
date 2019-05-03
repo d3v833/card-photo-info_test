@@ -1,6 +1,9 @@
 <h1>Check it out here: http://card-photo-info_test.surge.sh/</h1>
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Added some houdini stuff (CSS/JS) that I wanted to try out after watching this awesome video!
+https://www.youtube.com/watch?v=Lt__8aS-Av4&t=260s
+
 ## Available Scripts
 
 In the project directory, you can run:
