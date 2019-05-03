@@ -3,6 +3,7 @@ import CardList from './cardList';
 import SearchBox from './searchBox';
 import './index.css';
 import './App.css';
+import Scroll from './Scroll';
 class App extends Component {
   constructor() {
     super() // whenever you extend a class, you need super to access it
@@ -28,14 +29,17 @@ class App extends Component {
     })
     if (this.state.people.length === 0) {
       return <h1>Loading</h1>
+    } else {
+      return (
+        <div className="tc">
+          <h1 className="f3 f-headline-l">C A T  P E O P L E</h1>
+          <SearchBox searchChange={this.onSearchChange}/>
+          <Scroll>
+            <CardList people={ filteredCatpeople }/>
+          </Scroll>
+        </div>
+      );
     }
-    return (
-      <div className="tc">
-        <h1 className="f3 f-headline-l">C A T  P E O P L E</h1>
-        <SearchBox searchChange={this.onSearchChange}/>
-        <CardList people={ filteredCatpeople }/>
-      </div>
-    );
   } 
 }
 
