@@ -4,6 +4,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Added some houdini stuff (CSS/JS) that I wanted to try out after watching this awesome video!
 https://www.youtube.com/watch?v=Lt__8aS-Av4&t=260s
 
+
+## Learning notes:
+
+-in a bigger project organize folders to components...like each folder in the components folder should have everything it needs...like the reducers, actions, constants, etc.
+
+Makes sense in theory. Will need to try it out. 
+
+
 ## Available Scripts
 
 In the project directory, you can run:
