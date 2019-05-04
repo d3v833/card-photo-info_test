@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import CardList from './cardList';
-import SearchBox from './searchBox';
-import './index.css';
+import CardList from '../components/cardList';
+import SearchBox from '../components/searchBox';
+import '../index';
 import './App.css';
-import Scroll from './Scroll';
+import Scroll from '../components/Scroll';
 class App extends Component {
   constructor() {
     super() // whenever you extend a class, you need super to access it
@@ -24,25 +24,23 @@ class App extends Component {
   }
 
   render() {
-    const filteredCatpeople = this.state.people.filter(people =>{
-      return people.name.toLowerCase().includes(this.state.searchfield.toLowerCase())
+    const { people, searchfield } = this.state;
+    const filteredCatpeople = people.filter(catPeople =>{
+      return catPeople.name.toLowerCase().includes(searchfield.toLowerCase())
     })
-    if (this.state.people.length === 0) {
-      return <h1>Loading</h1>
-    } else {
-      return (
-        <div className="tc">
+    return !people.length ?
+      <h1>Loading</h1> :
+      (
+        <div>
           <h1 className="f3 f-headline-l">C A T  P E O P L E</h1>
           <SearchBox searchChange={this.onSearchChange}/>
           <Scroll>
             <CardList people={ filteredCatpeople }/>
           </Scroll>
         </div>
-      );
-    }
-  } 
+      )
+  }
 }
-
 const changeBg = (color) => {
   document.documentElement.style.setProperty('--background', color)
 }

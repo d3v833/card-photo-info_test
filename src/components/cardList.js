@@ -1,17 +1,20 @@
 import React from 'react';
-import Card from './card';
+import Card from '../components/card';
 
 const cardList = ({ people }) => {
+
   const cardComponent = people.map((_name, i) => 
-  <Card 
+      <Card 
     name={people[i].name} 
     email={people[i].email} 
     position={people[i].position} 
   />)
-  return (
-    <div>
-      { cardComponent }
-    </div>
+  return (  
+    <constainer>
+      <div className="tc">  
+        { cardComponent }
+      </div>
+    </constainer>
   );
 }
 

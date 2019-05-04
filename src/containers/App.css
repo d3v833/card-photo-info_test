@@ -10,4 +10,5 @@ h1 {
   font-family: 'Typoline Demi Shadow Italic';
   font-weight: 100;
   color: var(--primaryColor);
+  text-align: center;
 }
