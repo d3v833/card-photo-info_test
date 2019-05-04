@@ -1,47 +1,39 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { setSearchField, requestPeople } from '../actions';
 import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
-
 import '../index';
 import './App.css';
 
-import { setSearchField } from '../actions';
 
 const mapStateToProps = state => {
   return {
-    searchField: state.searchField
+    searchField: state.searchPeople.searchField,
+    people: state.requestPeople.people,
+    isPending: state.requestPeople.isPending,
+    error: state.requestPeople.error
   }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-  onSearchChange: (event) => dispatch(setSearchField(event.target.value))
+    onSearchChange: (event) => dispatch(setSearchField(event.target.value)),
+    onRequestPeople: () => dispatch(requestPeople())
   }
 }
-
 class App extends Component {
-  constructor() {
-    super() // whenever you extend a class, you need super to access it
-    this.state = {
-      people: [],
-    }
-  }
-
   componentDidMount() {
-    fetch('https://jsonplaceholder.typicode.com/users')
-    .then(response=> response.json())
-    .then(users=> {this.setState({ people: users})});
+    this.props.onRequestPeople()
   }
 
   render() {
-    const { people } = this.state;
-    const { searchField, onSearchChange } = this.props;
+    const { searchField, onSearchChange, people, isPending } = this.props;
     const filteredCatpeople = people.filter(catPeople =>{
       return catPeople.name.toLowerCase().includes(searchField.toLowerCase())
     })
-    return !people.length ?
+    return isPending ?
       <h1>Loading</h1> :
       (
         <div>
