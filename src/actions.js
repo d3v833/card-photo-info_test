@@ -1,8 +1,8 @@
 import { 
   CHANGE_SEARCH_FIELD,
-  REQUEST_ROBOTS_PENDING,
-  REQUEST_ROBOTS_SUCCESS,
-  REQUEST_ROBOTS_FAILED,
+  REQUEST_PEOPLE_PENDING,
+  REQUEST_PEOPLE_SUCCESS,
+  REQUEST_PEOPLE_FAILED,
 } from './constants'
 
 export const setSearchField = (text) => {
@@ -14,9 +14,9 @@ export const setSearchField = (text) => {
     // NOTES --'payload' is used in redux to send whatver data is needed to the reducer.
 
 export const requestPeople = () => (dispatch) => {
-  dispatch({ type: REQUEST_ROBOTS_PENDING})
+  dispatch({ type: REQUEST_PEOPLE_PENDING})
   fetch('https://jsonplaceholder.typicode.com/users')
   .then(response=> response.json())
-  .then(data => dispatch({type:REQUEST_ROBOTS_SUCCESS, payload: data}))
-  .catch(error => dispatch ({ type: REQUEST_ROBOTS_FAILED, payload: error}))
+  .then(data => dispatch({type:REQUEST_PEOPLE_SUCCESS, payload: data}))
+  .catch(error => dispatch ({ type: REQUEST_PEOPLE_FAILED, payload: error}))
 }

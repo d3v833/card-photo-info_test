@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from './Card';
 
-const cardList = ({ people }) => {
+const CardList = ({ people }) => {
   // if (true) {
   //   throw new Error("The cat's outta the bag!")
   // } /* Used this to try out the ErrorBoundary component */
@@ -18,4 +18,4 @@ const cardList = ({ people }) => {
   );
 }
 
-export default cardList;
+export default CardList;
